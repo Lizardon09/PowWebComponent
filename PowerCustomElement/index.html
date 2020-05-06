@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WebComponentDemo</title>
+  <base href="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="power.js"></script>
+</head>
+<body>
+
+  <input id=numberBox name="numberBox" type="text" placeholder="0">
+
+  <app-power id="custompower"></app-power>
+
+  <button onclick="getTextBoxValue();">Insert Input</button>
+  
+  <script>
+    function getTextBoxValue(){
+      var textboxvalue = document.getElementById("numberBox").value;
+      document.getElementById("custompower").inputvalue = textboxvalue;
+    }
+  </script>
+  
+  <script>
+    const sqrt = document.querySelector('app-power');
+    sqrt.addEventListener('result',(event) =>{
+      console.log(`"Power event" emitted: ${event.detail}`);
+    });
+  </script>
+</body>
+</html>
